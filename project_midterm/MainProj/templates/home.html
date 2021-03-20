@@ -1,0 +1,96 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<title>HOME</title>
+<div class="col-md-12">
+<br>
+<div class="card" style="background-color: #f4d160;">
+  <div class="touch">
+    <h2 class="text-center">{{standing_w[0]['stage']}}: LEAGUE </h2>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="touch">
+    <div class="card bg-light text-dark">
+      <div class="card-body">
+        <!-- nav tab -->
+          <ul class="nav nav-tabs col-md-12 ">
+            <li class="nav-item col-md-6 ">
+              <a class="nav-link active" data-toggle="tab" href="#western">Western Conference</a>
+            </li>
+            <li class="nav-item col-md-6 ">
+              <a class="nav-link" data-toggle="tab" href="#eastern">Eastern Conference</a>
+            </li>
+          </ul>
+        <!-- Tab panes -->
+      <div class="tab-content">
+        <div id="western" class="container tab-pane active"><br>
+          <h2 class="text-center">Western&nbsp;Conference</h2>
+          <table class="table table-hover table-striped text-center">
+          <thead class="table-dark">
+            <tr>
+                <th>Standing</th>
+                <th colspan="2">Team</th>
+                <th>Match</th>
+                <th>Win</th>
+                <th>Win_PCT</th>
+                <th>Lose</th>
+                <th>Lose_PCT</th>
+                <th>FORM</th>
+                  
+            </tr>
+          </thead>
+          <tbody>
+          {% for i in standing_w %}
+            <tr>                
+                <td>{{ i['position'] }}</td>
+                <td><img src="{{i['team']['logo']}}" class="img-fluid" alt="no image" style="width:25%; height:25%;"></img></td>
+                <td>{{ i['team']['name'] }}</td>
+                <td>{{ i['games']['played']}}</td>
+                <td>{{ i['games']['win']['total'] }}</td>
+                <td>{{ i['games']['win']['percentage'] }}</td>
+                <td>{{ i['games']['lose']['total'] }}</td>
+                <td>{{ i['games']['lose']['percentage'] }}</td>
+                <td>{{ i['form'] }}</td>
+            </tr>           
+            {% endfor %}
+          </tbody>
+          </table>
+        </div>
+        <div id="eastern" class="container tab-pane fade"><br>
+          <h2 class="text-center">Eastern&nbsp;Conference</h2>
+          <table class="table table-hover table-striped  text-center">
+          <thead class="table-dark">
+            <tr>
+                <th>Standing</th>
+                <th colspan="2">Team</th>
+                <th>Match</th>
+                <th>Win</th>
+                <th>Win_PCT</th>
+                <th>Lose</th>
+                <th>Lose_PCT</th>
+                <th>FORM</th>     
+              </tr>
+          </thead>
+          <tbody>
+              {% for i in standing_e %}
+            <tr>                
+                <td>{{ i['position'] }}</td>
+                <td><img src="{{i['team']['logo']}}" class="img-fluid" alt="no image" style="width:15%; height:15%;"></img></td>
+                <td>{{ i['team']['name'] }}</td>
+                <td>{{ i['games']['played']}}</td>
+                <td>{{ i['games']['win']['total'] }}</td>
+                <td>{{ i['games']['win']['percentage'] }}</td>
+                <td>{{ i['games']['lose']['total'] }}</td>
+                <td>{{ i['games']['lose']['percentage'] }}</td>
+                <td>{{ i['form'] }}</td>
+            </tr>            
+            {% endfor %}
+          </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

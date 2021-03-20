@@ -1,0 +1,82 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<title>LIVESCORES</title>
+<div class="mt">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="touch">
+        <div class="card text-left">
+          <div class="card-body">
+              <table class="table table-hover table-striped text-center" >
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>league</th>
+                    <th colspan="5">Home team</th>
+                    <th>Score</th>
+                    <th colspan="5">Away team</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in result %}
+                  <tr>
+                    <td rowspan="3" class="align-middle">{{ i['event_date'] }}<br>{{ i['event_time'] }}</td>
+                    <td rowspan="3" class="align-middle">{{ i['league_name'] }}</td>
+                    <td rowspan="3" class="align-middle"><img src="{{i.url_home}}" class="img-fluid " alt="no logo image" style="width:50%; height:50%;"></img></td>
+                    <td colspan="4" class="align-middle">{{ i['event_home_team'] }}</td>
+                    <td rowspan="3" class="align-middle"><br> {{ i['event_final_result'] }}</td>
+                    <td colspan="4" class="align-middle">{{ i['event_away_team'] }}</td>
+                    <td rowspan="3" class="align-middle"><img src="{{i.url_away}}" class="img-fluid " alt="no logo image" style="width:50%; height:50%;"></td>
+                  </tr>
+                  <tr>
+                    <td>Q1</td>
+                    <td>Q2</td>
+                    <td>Q3</td>
+                    <td>Q4</td>
+                    <td>Q1</td>
+                    <td>Q2</td>
+                    <td>Q3</td>
+                    <td>Q4</td>
+                  </tr>
+                  <tr>
+                    <td>{{i['f1stQuarter']['score_home']}}</td>
+                    <td>{{i['s2ndQuarter']['score_home']}}</td>
+                    <td>{{i['t3rdQuarter']['score_home']}}</td>
+                    <td>{{i['f4thQuarter']['score_home']}}</td>
+                    <td>{{i['f1stQuarter']['score_away']}}</td>
+                    <td>{{i['s2ndQuarter']['score_away']}}</td>
+                    <td>{{i['t3rdQuarter']['score_away']}}</td>
+                    <td>{{i['f4thQuarter']['score_away']}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              <!--<tr>
+                <th>Date</th>
+                <th>TimeTH</th>
+                <th colspan="2">Home Team</th>
+                <th colspan="2">Away Team</th>
+                <th>Result</th>
+                <th>League Name</th>
+                <th>Round</th>
+              </tr>
+            {% for i in result %}
+            <tr>                
+                <td>{{ i['event_date'] }}</td>
+                <td>{{ i['event_time'] }}</td>
+                <td><img src="{{i.url_home}}" class="img-fluid z-depth-1" alt="Responsive image" style="width:150px"></img></td>
+                <td>{{ i['event_home_team'] }}</td>
+                <td><img src="{{i.url_away}}" class="img-fluid z-depth-1" alt="Responsive image" style="width:150px"></img></td>
+                <td>{{ i['event_away_team'] }}</td>
+                <td>{{ i['event_final_result'] }}</td>
+                <td>{{ i['league_name'] }}</td>
+                <td>{{ i['league_round'] }}</td>   
+            </tr>         
+            {% endfor %}-->
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

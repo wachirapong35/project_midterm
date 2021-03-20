@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bai+Jamjuree:ital,wght@1,700&family=Londrina+Solid:wght@100;400&display=swap');
+
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+
+    body {
+        padding: 0;
+        margin: 0 0 100px;
+        font-family: 'Trebuchet MS', sans-serif;
+        background: url("https://www.premiumseatsusa.com/special-events/wp-content/uploads/2017/02/NBA-background.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    /* card */
+    .touch {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .touch .card {
+        border: none;
+        border-radius: 1rem;
+        border-color: block;
+    }
+
+    footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .table td  {
+        text-align: center;
+    }
+    .table th  {
+        text-align: center;
+    }
+
+    

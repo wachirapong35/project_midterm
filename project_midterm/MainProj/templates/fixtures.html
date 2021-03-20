@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<title>FIXTURES</title>
+<div class="mt">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="touch">
+        <div class="card text-left">
+          <div class="card-body">
+          <body class="text-center">
+          <h1 class="text-center" style="background-color: #f4d160;">ตารางการแข่งขัน NBA วันนี้</h1>
+          <table class="table table-hover table-striped">
+          <thead class="text-center">
+            <tr>
+                <th>Status</th>
+                <th colspan="5">Match</th>
+                <th>Time</th>
+                <br>
+            </tr>
+          </thead>
+            <tbody>
+            {% for i in fixtures %}
+            <tr>                
+                <td class="align-middle">{{ i['status']['short'] }}</td>
+                <td class="align-middle"><img src="{{i['teams']['home']['logo']}}" class="img-fluid" alt="Responsive image" style="width:35%; height:35%;"></img></td>
+                <td class="align-middle">{{ i['teams']['home']['name'] }}</td>
+                <td class="align-middle">vs</td>
+                <td class="align-middle">{{ i['teams']['away']['name'] }}</td>
+                <td class="align-middle"><img src="{{i['teams']['away']['logo']}}" class="img-fluid" alt="Responsive image" style="width:35%; height:35%;"></img></td>
+                <td class="align-middle">{{ i['time'] }}</td>
+            </tr>       
+            {% endfor %}
+            </tbody>
+          </table>
+          <p>FT:game finish , NS:not start , AOT:Ahead Of Time</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

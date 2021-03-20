@@ -1,0 +1,43 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<title>ABOUT_US</title>
+<body>
+<br>
+<div class="card">
+<div class="touch">
+<h2 class="text-center" style="background-color: #f4d160;">Member</h2>
+</div>
+</div>
+
+
+  <div class="mt">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="touch">
+          <div class="card text-left">
+            <div class="card-body">
+            <table class="table table-hover table-striped text-center">        
+              <thead>
+                <tr>
+                  <th>Picture</th>
+                  <th>ID</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in ab_info %}
+                  <tr>
+                    <td class="align-middle"><img src="{{i.ab_pic}}" class="img-fluid z-depth-1" alt="Responsive image" style="width:125px"></td>
+                    <td class="align-middle">{{i.ab_name}}</td>
+                    <td class="align-middle">{{i.ab_id}}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+

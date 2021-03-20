@@ -1,0 +1,49 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<title>SEARCH_TEAM</title>
+<div class="touch"></div>
+    <div class="card">
+      <div class="touch">
+        <h2 class="text-center" style="background-color: #f4d160;">Find team</h2>
+      </div>
+    </div>
+      <div class="touch">
+        <div class="card">
+          <div class="touch"></div>
+          
+          <div class="col-sm">
+            <div class="form-outline">
+              <form action = "/team" method="post">
+                <input type="text" name="team_search" class="form-control" />
+                <br>
+                <button type="submit" class="btn btn-danger"><dt>ค้นหาทีมที่ต้องการ</dt></button>
+              </form>
+              <br>
+               <div class="col-md-12">
+                <div class="touch">
+                  <div class="card text-center">
+                    <div class="card-body">
+                      <div class="row">
+                        {% for i in search_team %}
+                        <div class="col-md-4 mt-2">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5>{{i['name']}}</h4>
+                              <img src="{{i['logo']}}" class="img-fluid z-depth-1" alt="Responsive image" style="width:175px"></img><br><br><br>
+                              <p>From</p>
+                              <p><img src="{{i['country']['flag']}}" class="img-fluid z-depth-1" alt="Responsive image" style="width:20px"></img>     {{i['country']['name']}}</p>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>     
+      </div>
+{% endblock %}
+
